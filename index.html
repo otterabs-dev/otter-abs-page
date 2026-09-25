@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Otter Abs – Independent Mobile Apps & Games</title>
-  <meta name="description" content="Otter Abs – Mobile Tech & Casual Game Studio. Other Apps? No, Otter Abs!">
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <meta name="description" content="Otter Abs – Independent Mobile Tech & Casual Game Studio. Other Apps? No, Otter Abs!">
+  <link rel="icon" type="image/png" href="assets/logo.png">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -30,12 +30,11 @@
   <header class="border-b border-slate-800/80 backdrop-blur-md sticky top-0 z-50 bg-slate-950/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center space-x-3 group">
-        <img src="assets/logo.jpg" alt="Otter Abs Logo" class="w-10 h-10 rounded-full border-2 border-orange-500/60 shadow-lg group-hover:scale-105 transition-transform duration-200">
+        <img src="assets/logo.png" alt="Otter Abs Logo" class="w-10 h-10 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-200">
         <span class="font-extrabold text-xl tracking-tight text-white group-hover:text-orange-400 transition-colors">Otter Abs</span>
       </a>
       <nav class="flex items-center space-x-6 text-sm font-medium text-slate-300">
-        <a href="#apps" class="hover:text-orange-400 transition-colors">Apps & Games</a>
-        <a href="#about" class="hover:text-orange-400 transition-colors">About</a>
+        <a href="#about" class="hover:text-orange-400 transition-colors">Über uns</a>
         <a href="privacy.html" class="hover:text-orange-400 transition-colors">Datenschutz</a>
         <a href="impressum.html" class="hover:text-orange-400 transition-colors">Impressum</a>
       </nav>
@@ -44,21 +43,22 @@
 
   <!-- Hero Section -->
   <main class="flex-grow">
-    <section class="relative overflow-hidden py-20 sm:py-28 px-4 sm:px-6 text-center">
+    <section class="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 text-center">
       <div class="absolute inset-0 -z-10 flex items-center justify-center">
         <div class="w-[500px] h-[500px] bg-gradient-to-tr from-teal-500/10 via-orange-500/15 to-transparent rounded-full blur-3xl opacity-70"></div>
       </div>
       
       <div class="max-w-4xl mx-auto flex flex-col items-center">
-        <!-- Badge -->
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/20 mb-6">
-          <span>🤙 Independent Mobile Studio</span>
+        <!-- In Development Badge -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/25 mb-6">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+          <span>🚧 In Development • Apps &amp; Website im Aufbau</span>
         </div>
 
-        <!-- Mascot Logo Display -->
-        <div class="relative mb-8 group">
-          <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-teal-500 to-orange-500 opacity-30 blur group-hover:opacity-60 transition duration-300"></div>
-          <img src="assets/logo.jpg" alt="Otter Abs Mascot" class="relative w-44 h-44 sm:w-56 sm:h-56 rounded-2xl shadow-2xl object-cover border border-slate-700/60 transform group-hover:scale-[1.02] transition-transform duration-300">
+        <!-- Mascot Logo Display (Clean Transparent Vector Asset) -->
+        <div class="relative mb-6 group flex justify-center">
+          <div class="absolute inset-0 bg-gradient-to-tr from-teal-500/20 via-orange-500/20 to-transparent rounded-full blur-2xl transform scale-110"></div>
+          <img src="assets/logo.png" alt="Otter Abs Mascot" class="relative w-56 sm:w-72 drop-shadow-2xl hover:scale-105 transition-transform duration-300">
         </div>
 
         <!-- Main Headline -->
@@ -68,71 +68,50 @@
         </h1>
         
         <p class="max-w-2xl text-lg sm:text-xl text-slate-400 mb-8 leading-relaxed">
-          Taktische Casual Games, digitale Brettspiel-Adaptionen und smarte Utilities. Gebaut mit Leidenschaft, Koffein und maximaler Neugier.
+          Unabhängiges Entwicklerstudio für Mobile Apps &amp; Casual Games.<br class="hidden sm:inline" />
+          Wir tüfteln aktuell an spannenden Projekten – erste Releases folgen bald im Google Play Store.
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="#apps" class="px-6 py-3 rounded-xl font-bold bg-orange-500 text-white hover:bg-orange-400 transition-colors shadow-lg shadow-orange-500/25">
-            Unsere Apps ansehen
+          <a href="mailto:otterabs@gmail.com" class="px-6 py-3 rounded-xl font-bold bg-orange-500 text-white hover:bg-orange-400 transition-colors shadow-lg shadow-orange-500/25">
+            Kontakt aufnehmen
           </a>
-          <a href="https://github.com/otterabs-dev/otter-abs" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors border border-slate-700">
-            GitHub Repository
+          <a href="#about" class="px-6 py-3 rounded-xl font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 transition-colors border border-slate-800">
+            Über das Studio
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Apps Section -->
-    <section id="apps" class="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-800/80">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-black text-white mb-3">Games & Apps</h2>
-        <p class="text-slate-400 max-w-xl mx-auto">Frische Spielideen für schnelle Runden, taktische Tiefe und puren Spaß.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- App 1: CrossFive -->
-        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 hover:border-slate-700 transition-all flex flex-col justify-between group">
+    <!-- In Development Status Section -->
+    <section class="py-12 px-4 sm:px-6 max-w-4xl mx-auto border-t border-slate-800/80">
+      <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="text-2xl">⚡</span>
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">Würfelspiel</span>
-              <span class="text-xs text-slate-500 font-mono">Status: Prototyp</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">CrossFive</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Ein rasanter, taktischer Roll &amp; Write Klassiker. Würfle, wähle Farben und Zahlenkombinationen geschickt und kreuze dein Spielfeld vor allen anderen voll. Solo gegen den Highscore oder im lokalen Multiplayer.
-            </p>
-            <ul class="text-xs text-slate-400 space-y-2 mb-6">
-              <li class="flex items-center"><span class="text-teal-400 mr-2">✔</span> Schnelle Runden (10–15 Minuten)</li>
-              <li class="flex items-center"><span class="text-teal-400 mr-2">✔</span> Deterministische Boards &amp; Daily Seeds</li>
-              <li class="flex items-center"><span class="text-teal-400 mr-2">✔</span> Pass &amp; Play &amp; Solo-Modus</li>
-            </ul>
-          </div>
-          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs text-slate-500">Google Play Release bald</span>
-            <span class="text-xs font-semibold text-orange-400 group-hover:translate-x-1 transition-transform">Details ansehen &rarr;</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Status: Im Entwicklungszyklus</h2>
+            <p class="text-xs text-slate-400">Frische Spielideen &amp; Prototypen in Vorbereitung</p>
           </div>
         </div>
 
-        <!-- App 2: FlipTwelve -->
-        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 hover:border-slate-700 transition-all flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Kartenspiel</span>
-              <span class="text-xs text-slate-500 font-mono">Status: Core Engine 100%</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">FlipTwelve</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Die digitale Weiterentwicklung des beliebten Golf- &amp; Skyjo-Prinzips. 12 Karten, geschicktes Aufdecken, Tauschen und Spalten abräumen. Wer am Ende die niedrigste Punktzahl hat, gewinnt die Runde!
-            </p>
-            <ul class="text-xs text-slate-400 space-y-2 mb-6">
-              <li class="flex items-center"><span class="text-amber-400 mr-2">✔</span> 150 Karten mit Werten von -2 bis 12</li>
-              <li class="flex items-center"><span class="text-amber-400 mr-2">✔</span> Klassischer Modus &amp; Advanced Combo Grid</li>
-              <li class="flex items-center"><span class="text-amber-400 mr-2">✔</span> Spannende Verdoppelungs-Regel</li>
-            </ul>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+          Hier entsteht der offizielle Webauftritt für unser Entwicklerprofil. Wir entwickeln eigenständige, unterhaltsame Casual Games und smarte Tools mit modernem Stack. Die ersten Titel durchlaufen demnächst die geschlossene Testphase für Android.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-800/60 text-center sm:text-left">
+          <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/40">
+            <div class="text-orange-400 font-extrabold text-sm mb-1">Flutter &amp; Dart</div>
+            <div class="text-xs text-slate-400">Flüssige native Performance und plattformübergreifende Codebasis.</div>
           </div>
-          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs text-slate-500">Google Play Release bald</span>
-            <span class="text-xs font-semibold text-orange-400 group-hover:translate-x-1 transition-transform">Details ansehen &rarr;</span>
+          <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/40">
+            <div class="text-teal-400 font-extrabold text-sm mb-1">Privacy First</div>
+            <div class="text-xs text-slate-400">DSGVO-konform, transparenter Datenschutz, kein Datenhandel.</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/40">
+            <div class="text-amber-400 font-extrabold text-sm mb-1">Google Play Ready</div>
+            <div class="text-xs text-slate-400">Entwicklerprofil &amp; Veröffentlichungs-Pipeline in Vorbereitung.</div>
           </div>
         </div>
       </div>
@@ -143,10 +122,10 @@
       <div class="bg-gradient-to-r from-slate-900 to-slate-900/60 p-8 sm:p-12 rounded-3xl border border-slate-800 text-center">
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Über Otter Abs</h2>
         <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
-          Otter Abs ist ein unabhängiges Entwicklerprojekt aus Deutschland. Hier treffen moderne Software-Entwicklung, KI-gestützte Workflows und die Freude an unkompliziertem, durchdachtem Spielspaß aufeinander.
+          Otter Abs ist ein unabhängiges Entwicklerprojekt aus Deutschland. Mit Leidenschaft für clevere Spielmechaniken, saubere Code-Architektur und einen entspannten Surfer-Vibe entstehen hier neue Projekte für Android.
         </p>
         <p class="text-xs text-slate-500">
-          Entwickelt mit Flutter, Dart und Liebe zum Detail.
+          Fragen, Kooperationen oder Feedback? Erreichbar unter <a href="mailto:otterabs@gmail.com" class="text-orange-400 underline">otterabs@gmail.com</a>.
         </p>
       </div>
     </section>
@@ -156,7 +135,7 @@
   <footer class="border-t border-slate-800/80 py-10 px-4 sm:px-6 bg-slate-950 text-xs text-slate-400">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-3">
-        <img src="assets/logo.jpg" alt="Otter Abs" class="w-6 h-6 rounded-full">
+        <img src="assets/logo.png" alt="Otter Abs" class="w-6 h-6 object-contain">
         <span>&copy; 2026 Otter Abs. Alle Rechte vorbehalten.</span>
       </div>
       <div class="flex space-x-6">

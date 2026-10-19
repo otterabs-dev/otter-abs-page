@@ -3,68 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Otter Abs</title>
-  <meta name="description" content="Otter Abs – Other Apps? No, Otter Abs!">
+  <title>Otter Abs – Independent Mobile Games &amp; Table-Companion Apps</title>
+  <meta name="description" content="Otter Abs – Smarte Würfel-, Karten- und Gesellschaftsspiel-Apps für Android &amp; iOS: CrossFive, QuickSix, FlipTwelve, NightOtter, PartyOtter &amp; OtterRPS.">
   <link rel="icon" type="image/png" href="assets/logo.png">
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white">
 
-  <!-- Minimal Header -->
-  <header class="border-b border-slate-900/80 backdrop-blur-sm sticky top-0 z-50 bg-slate-950/70">
+  <!-- Header -->
+  <header class="border-b border-slate-900/80 backdrop-blur-sm sticky top-0 z-50 bg-slate-950/80">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center space-x-3 group">
         <img src="assets/logo.png" alt="Otter Abs Logo" class="w-9 h-9 object-contain drop-shadow group-hover:scale-105 transition-transform duration-200">
         <span class="font-extrabold text-lg tracking-tight text-white group-hover:text-orange-400 transition-colors">Otter Abs</span>
       </a>
-      <nav class="flex items-center space-x-6 text-xs sm:text-sm font-medium text-slate-400">
+      <nav class="flex items-center space-x-5 text-xs sm:text-sm font-medium text-slate-400">
+        <a href="#games" class="hover:text-white transition-colors">Spiele</a>
         <a href="privacy.html" class="hover:text-white transition-colors">Datenschutz</a>
+        <a href="privacy.html#data-deletion" class="hover:text-white transition-colors hidden sm:inline">Datenlöschung</a>
         <a href="impressum.html" class="hover:text-white transition-colors">Impressum</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Content (Small & Simple) -->
-  <main class="flex-grow flex items-center justify-center py-12 sm:py-16 px-4 sm:px-6 text-center">
-    <div class="max-w-xl mx-auto flex flex-col items-center">
-      
-      <!-- In Development Badge -->
-      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-8">
+  <!-- Hero Content -->
+  <main class="flex-grow py-12 sm:py-16 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto flex flex-col items-center text-center mb-14">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-6">
         <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-        <span>In Development</span>
+        <span>Mobile Games &amp; Table-Companions &bull; Android &amp; iOS</span>
       </div>
 
-      <!-- Mascot Logo (Transparent & Floating) -->
-      <div class="relative mb-8 flex justify-center">
+      <div class="relative mb-6 flex justify-center">
         <div class="absolute inset-0 bg-gradient-to-tr from-teal-500/20 via-orange-500/20 to-transparent rounded-full blur-2xl transform scale-110 pointer-events-none"></div>
-        <img src="assets/logo.png" alt="Otter Abs Mascot" class="relative w-52 sm:w-64 drop-shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="assets/logo.png" alt="Otter Abs Mascot" class="relative w-44 sm:w-56 drop-shadow-2xl hover:scale-105 transition-transform duration-300">
       </div>
 
-      <!-- Slogan -->
-      <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white mb-3">
+      <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white mb-4">
         Other Apps? <br />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-teal-400">No, Otter Abs!</span>
       </h1>
-      
-      <p class="text-sm sm:text-base text-slate-400 max-w-sm mx-auto leading-relaxed">
-        Independent Mobile Apps.<br />
-        Aktuell in Entwicklung.
-      </p>
 
+      <p class="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+        Smarte Roll-&amp;-Write-Würfelspiele, Kartenspiele und synchronisierte Tisch-Companions für gemeinsame Spieleabende auf Android und iOS.
+      </p>
     </div>
+
+    <!-- Games Showcase -->
+    <section id="games" class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 hover:border-orange-500/40 transition-colors">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-orange-400">Roll &amp; Write Flaggschiff</span>
+          <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Release v1.0</span>
+        </div>
+        <h2 class="text-lg font-extrabold text-white mb-1">CrossFive</h2>
+        <p class="text-xs text-slate-400 leading-relaxed">Das taktische 15&times;7-Farbblock-Würfelspiel mit 5 Spielmodi, Täglichen Herausforderungen, KI-Duell, Online-Tischräumen und W6-Haushaltswürfel-Übersetzer.</p>
+      </div>
+
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/40 transition-colors">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Würfel-Klassiker</span>
+          <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Release v1.0</span>
+        </div>
+        <h2 class="text-lg font-extrabold text-white mb-1">QuickSix</h2>
+        <p class="text-xs text-slate-400 leading-relaxed">4 Farbreihen, 6 Würfel, null Wartezeit: Klassik-, Mixx- &amp; Blitz-Modus, globale Bestenliste, Tages-Challenge und synchronisierter Tisch-Block.</p>
+      </div>
+
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 hover:border-teal-500/40 transition-colors">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-400">Karten &amp; Companion</span>
+          <span class="text-[11px] px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">Bald verfügbar</span>
+        </div>
+        <h2 class="text-lg font-extrabold text-white mb-1">FlipTwelve</h2>
+        <p class="text-xs text-slate-400 leading-relaxed">Das spannende 3&times;4-Kartenraster-Spiel inklusive Live-Tisch-Scoreboard, Verdoppelungs-Gefahrenradar und Wahrscheinlichkeits-Rechner.</p>
+      </div>
+    </section>
   </main>
 
-  <!-- Minimal Footer -->
+  <!-- Footer -->
   <footer class="border-t border-slate-900 py-8 px-4 sm:px-6 bg-slate-950 text-xs text-slate-500">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
         <img src="assets/logo.png" alt="Otter Abs" class="w-5 h-5 object-contain">
-        <span>&copy; 2026 Otter Abs.</span>
+        <span>&copy; 2026 Otter Abs (Paul Kern) &bull; Wolfschlugen, Deutschland</span>
       </div>
-      <div class="flex space-x-6">
+      <div class="flex flex-wrap justify-center gap-5">
         <a href="privacy.html" class="hover:text-slate-300 transition-colors">Datenschutzerklärung</a>
+        <a href="privacy.html#data-deletion" class="hover:text-slate-300 transition-colors">Datenlöschung</a>
         <a href="impressum.html" class="hover:text-slate-300 transition-colors">Impressum</a>
+        <a href="app-ads.txt" class="hover:text-slate-300 transition-colors">app-ads.txt</a>
         <a href="mailto:otterabs@gmail.com" class="hover:text-slate-300 transition-colors">otterabs@gmail.com</a>
       </div>
     </div>

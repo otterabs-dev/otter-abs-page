@@ -54,7 +54,7 @@
   // Leaflet Map references
   let map = null;
   let tileLayer = null;
-  let mapStyle = 'voyager'; // 'voyager' | 'satellite'
+  let mapStyle = 'osm'; // 'osm' | 'hot' | 'satellite'
   let userMarker = null;
   let userAccuracyCircle = null;
   let mapMarkers = {}; // { [id]: L.Marker }
@@ -1471,7 +1471,7 @@
 
       L.control.zoom({ position: 'topleft' }).addTo(map);
 
-      setMapTileLayer('voyager');
+      setMapTileLayer('osm');
 
       // Draw dashed Walking-Route Polyline connecting Stations 1 -> 7
       const routeCoords = DATA.stations.map((s) => [s.lat, s.lng]);
@@ -1516,22 +1516,37 @@
         }
       ).addTo(map);
       if (btn) btn.textContent = '🗺️ Straßenkarte';
-    } else {
-      // CartoDB Voyager (sunny, high-contrast labels, 0 API keys)
+    } else if (style === 'hot') {
       tileLayer = L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
         {
-          subdomains: 'abcd',
-          maxZoom: 20,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          subdomains: 'abc',
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">HOT</a>'
         }
       ).addTo(map);
       if (btn) btn.textContent = '🛰️ Satellit';
+    } else {
+      // Standard OpenStreetMap (100% Free, 0 API-Keys, crisp street names & alleys)
+      tileLayer = L.tileLayer(
+        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }
+      ).addTo(map);
+      if (btn) btn.textContent = '☀️ Warm-Stil';
     }
   }
 
   function toggleMapStyle() {
-    setMapTileLayer(mapStyle === 'voyager' ? 'satellite' : 'voyager');
+    if (mapStyle === 'osm') {
+      setMapTileLayer('hot');
+    } else if (mapStyle === 'hot') {
+      setMapTileLayer('satellite');
+    } else {
+      setMapTileLayer('osm');
+    }
   }
 
   function createCustomMarkerIcon(type, label, isDone) {
@@ -2374,7 +2389,9 @@
 
   function registerServiceWorker() {
     if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-      navigator.serviceWorker.register('./sw.js').catch(() => {});
+      navigator.serviceWorker.register('./sw.js?v=2').then((reg) => {
+        reg.update();
+      }).catch(() => {});
     }
   }
 

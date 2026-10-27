@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="dome" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded App Icon Background -->
+  <rect width="512" height="512" rx="115" fill="url(#sky)" />
+  <!-- Sun Halo -->
+  <circle cx="256" cy="215" r="140" fill="#fef08a" opacity="0.16" />
+  <circle cx="256" cy="215" r="105" fill="#fde047" opacity="0.22" />
+  <!-- Golden Cathedral Dome of Cádiz -->
+  <path d="M256 76 L256 108 M242 90 L270 90" stroke="#fef08a" stroke-width="10" stroke-linecap="round" />
+  <path d="M156 260 C156 175, 205 118, 256 118 C307 118, 356 175, 356 260 Z" fill="url(#dome)" />
+  <!-- Dome Tile Ribs -->
+  <path d="M256 118 L256 260 M215 130 C200 175, 195 220, 195 260 M297 130 C312 175, 317 220, 317 260" stroke="#a16207" stroke-width="5" opacity="0.45" fill="none" />
+  <!-- Limestone Cathedral Base & Towers -->
+  <rect x="136" y="256" width="240" height="90" rx="8" fill="#fefce8" />
+  <rect x="108" y="195" width="44" height="151" rx="6" fill="#fef9c3" />
+  <rect x="360" y="195" width="44" height="151" rx="6" fill="#fef9c3" />
+  <path d="M108 195 L130 160 L152 195 Z" fill="#eab308" />
+  <path d="M360 195 L382 160 L404 195 Z" fill="#eab308" />
+  <!-- Arches -->
+  <path d="M232 346 L232 295 A24 24 0 0 1 280 295 L280 346 Z" fill="#0369a1" />
+  <path d="M172 346 L172 308 A16 16 0 0 1 204 308 L204 346 Z" fill="#0284c7" />
+  <path d="M308 346 L308 308 A16 16 0 0 1 340 308 L340 346 Z" fill="#0284c7" />
+  <!-- Atlantic Waves -->
+  <path d="M56 385 Q106 360 156 385 T256 385 T356 385 T456 385" fill="none" stroke="#fefce8" stroke-width="18" stroke-linecap="round" />
+  <path d="M76 430 Q126 405 176 430 T276 430 T376 430 T436 430" fill="none" stroke="#7dd3fc" stroke-width="14" stroke-linecap="round" />
+  <!-- Coral Compass Badge -->
+  <circle cx="400" cy="116" r="46" fill="#e11d48" stroke="#fefce8" stroke-width="6" />
+  <polygon points="400,82 412,116 400,108 388,116" fill="#fefce8" />
+  <polygon points="400,150 412,116 400,124 388,116" fill="#fda4af" />
+</svg>

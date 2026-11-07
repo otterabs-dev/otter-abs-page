@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>keine Zauberei | Hundeberg Trainingsbegleiter &amp; App-Vorschau</title>
+  <link rel="icon" href="assets/favicon.png" sizes="192x192" />
+  <link rel="stylesheet" href="https://use.typekit.net/imm2xde.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====================================================================
+       HEADER (Original Hundeberg Layout & SVG Logo)
+       ==================================================================== -->
+  <header class="hb-header">
+    <div class="hb-container hb-header-inner">
+      <a href="#top" class="hb-logo-link" aria-label="Hundeberg Startseite">
+        <img src="assets/logo-hundeberg.svg" alt="Logo der Hundeschule Hundeberg in Grün" class="hb-logo-img" />
+        <span class="hb-logo-badge">App-Konzept &amp; Vorschau</span>
+      </a>
+
+      <nav class="hb-nav" aria-label="Hauptnavigation">
+        <a href="#app-vorschau">Trainings-App</a>
+        <a href="#prinzip">Das Prinzip</a>
+        <a href="#themen-katalog">Kurse &amp; Übungen</a>
+        <a href="#trainerinnen">Trainerinnen</a>
+        <button type="button" id="firebaseStatusBtn" class="hb-sync-pill" title="Echtzeit-Synchronisation über OtterAbs Firebase Cloud Firestore">
+          <span id="firebaseSyncDot" class="hb-sync-dot"></span>
+          <span id="firebaseSyncText">OtterAbs Firebase: Verbinde...</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       HERO SECTION ("keine Zauberei")
+       ==================================================================== -->
+  <section id="top" class="hb-hero">
+    <div class="hb-container">
+      <div class="hb-hero-content">
+        <span class="hb-overline">Hundeberg Hundeschule · Zell unter Aichelberg</span>
+        <h1>keine Zauberei</h1>
+        <p class="hb-hero-lead">
+          Ein entspannter Hund bei Begegnungen, zuverlässige Nasenarbeit und sichere Impulskontrolle beim Anti-Jagd-Training sind keine Zauberei. Sie entstehen zwischen den Trainingsstunden – durch glasklaren Übungsaufbau, kleine machbare Hausaufgaben zum Abhaken und direkte Rückmeldung deiner Trainerin.
+        </p>
+        <div class="hb-hero-actions">
+          <a href="#app-vorschau" class="hb-btn hb-btn-primary">Hausaufgaben-App testen (Paul &amp; Fifi)</a>
+          <a href="#themen-katalog" class="hb-btn hb-btn-light">Themen &amp; Übungen ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       CONCEPT STRIP ("Unsere Arbeit hat Hund und Fuß")
+       ==================================================================== -->
+  <section id="prinzip" class="hb-concept-strip">
+    <div class="hb-container">
+      <div class="hb-section-header">
+        <span class="hb-overline">Unser Versprechen für zuhause</span>
+        <h2>Unsere Arbeit hat Hund und Fuß</h2>
+        <p>
+          In der Hundeschule zeigen wir den Weg – im Alltag wächst die Routine. Mit dem digitalen Hundeberg-Trainingsbegleiter weiß jedes Mensch-Hund-Team unter der Woche genau, was und wie geübt wird.
+        </p>
+      </div>
+
+      <div class="hb-concept-grid">
+        <div class="hb-concept-item">
+          <div class="hb-concept-icon">
+            <img src="assets/bone.svg" alt="" />
+          </div>
+          <div class="hb-concept-text">
+            <h3>Klare Hausaufgaben</h3>
+            <p>Jede Übung – wie Pauls 5 Runden mit Fifi bei Lila-Blau – kommt mit verständlichem Aufbau und konkreten Einzelschritten.</p>
+          </div>
+        </div>
+
+        <div class="hb-concept-item">
+          <div class="hb-concept-icon">
+            <img src="assets/puzzle.svg" alt="" />
+          </div>
+          <div class="hb-concept-text">
+            <h3>Runde für Runde abhaken</h3>
+            <p>Kleine Erfolge sichtbar machen: Jede absolvierte Runde lässt sich direkt abhaken. Das motiviert und schafft Struktur im Alltag.</p>
+          </div>
+        </div>
+
+        <div class="hb-concept-item">
+          <div class="hb-concept-icon">
+            <img src="assets/empathize.svg" alt="" />
+          </div>
+          <div class="hb-concept-text">
+            <h3>Freies Eigentraining</h3>
+            <p>Kundinnen und Kunden können jederzeit eigene Einheiten aus Nasenarbeit, Begegnungen oder Anti-Jagd-Training dokumentieren.</p>
+          </div>
+        </div>
+
+        <div class="hb-concept-item">
+          <div class="hb-concept-icon">
+            <img src="assets/award.svg" alt="" />
+          </div>
+          <div class="hb-concept-text">
+            <h3>Direkter Draht zur Trainerin</h3>
+            <p>Dominika, Saskia und Martina sehen live, wenn eine Übung erledigt wurde, und können die nächste Trainingsstunde perfekt anpassen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       INTERACTIVE APP PREVIEW WORKSPACE (Customer App + Trainer Cockpit)
+       ==================================================================== -->
+  <section id="app-vorschau" class="hb-workspace-section">
+    <div class="hb-container">
+
+      <!-- Mode Switcher & Team Selector Bar -->
+      <div class="hb-toolbar">
+        <div class="hb-view-tabs" role="tablist" aria-label="Ansichtsmodus wählen">
+          <button type="button" class="hb-view-tab active" data-view-mode="split">
+            Beide Ansichten (Live-Vergleich)
+          </button>
+          <button type="button" class="hb-view-tab" data-view-mode="customer">
+            Kunden-App (Hausaufgaben)
+          </button>
+          <button type="button" class="hb-view-tab" data-view-mode="trainer">
+            Trainer-Cockpit (Kontrolle)
+          </button>
+        </div>
+
+        <div class="hb-toolbar-right">
+          <div class="hb-team-selector-wrap">
+            <label for="teamSelect">Aktives Team:</label>
+            <select id="teamSelect" class="hb-select">
+              <option value="paul_fifi">Paul mit Hund Fifi (Begegnungen &amp; Nasenarbeit)</option>
+              <option value="julia_balu">Julia mit Hund Balu (Anti-Jagd &amp; Longieren)</option>
+              <option value="markus_lotte">Markus mit Hündin Lotte (Anti-Giftköder &amp; Hoopers)</option>
+            </select>
+          </div>
+          <button type="button" id="resetDemoBtn" class="hb-btn hb-btn-outline hb-btn-sm">
+            Demo zurücksetzen
+          </button>
+        </div>
+      </div>
+
+      <!-- Dual Stage: Left = Customer App, Right = Trainer Cockpit -->
+      <div id="appStage" class="hb-app-stage mode-split">
+
+        <!-- ==============================================================
+             LEFT PANE: KUNDEN-APP (Paul & Fifi)
+             ============================================================== -->
+        <div class="hb-pane hb-customer-pane">
+          <div class="hb-pane-topbar">
+            <div class="hb-pane-label">
+              <span class="hb-pane-role-tag">Kunden-Ansicht</span>
+              <span class="hb-pane-title" id="customerPaneHeaderTitle">Trainingsheft · Paul &amp; Fifi</span>
+            </div>
+            <span style="font-size: 0.8rem; opacity: 0.9;">Hundeberg App</span>
+          </div>
+
+          <div class="hb-pane-body">
+            <!-- Dog & Owner Profile Card -->
+            <div id="customerProfileCard" class="hb-dog-profile-card">
+              <!-- Populated dynamically by app.js -->
+            </div>
+
+            <!-- Homework List -->
+            <div id="customerHomeworkList" class="hb-homework-list">
+              <!-- Populated dynamically by app.js -->
+            </div>
+
+            <!-- Self-Initiated Training Form ("Wenn die Kundschaft selber was machen kann") -->
+            <div class="hb-self-training-card">
+              <span class="hb-overline" style="margin-bottom: 0.25rem; font-size: 0.7rem;">Eigeninitiative im Alltag</span>
+              <h4>Eigene Übung mit <span id="selfTrainDogName">Fifi</span> eintragen</h4>
+              <p>
+                Du hast beim Spaziergang oder zuhause selbstständig geübt? Trage es hier ein – deine Trainerin sieht deinen Einsatz sofort in ihrer Übersicht.
+              </p>
+
+              <form id="selfTrainingForm">
+                <div class="hb-form-grid">
+                  <div>
+                    <label for="selfTrainCategory" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Themenbereich</label>
+                    <select id="selfTrainCategory" class="hb-input" required>
+                      <option value="Begegnungstraining / Socialwalk">Begegnungstraining / Socialwalk</option>
+                      <option value="Nasenarbeit">Nasenarbeit</option>
+                      <option value="Anti-Jagd-Training">Anti-Jagd-Training</option>
+                      <option value="Hoopers">Hoopers (Distanzarbeit)</option>
+                      <option value="Longieren">Longieren</option>
+                      <option value="Anti-Giftköder-Training">Anti-Giftköder-Training</option>
+                      <option value="Basiskurs / Alltagssignale">Basiskurs / Alltagssignale</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="selfTrainRounds" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Wiederholungen / Dauer</label>
+                    <select id="selfTrainRounds" class="hb-input" required>
+                      <option value="3 Runden sauber durchgeführt">3 Runden sauber durchgeführt</option>
+                      <option value="5 Runden sauber durchgeführt" selected>5 Runden sauber durchgeführt</option>
+                      <option value="10 Minuten ruhige Konzentrationsarbeit">10 Minuten ruhige Konzentrationsarbeit</option>
+                      <option value="2 reale Hundebegegnungen gemeistert">2 reale Hundebegegnungen gemeistert</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="margin-bottom: 0.75rem;">
+                  <label for="selfTrainDescription" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Was habt ihr geübt &amp; wie lief es?</label>
+                  <input
+                    type="text"
+                    id="selfTrainDescription"
+                    class="hb-input"
+                    placeholder="z.B. Am Feldweg bei zwei blauen Tonnen 5 Runden im Bogen geübt, Leine blieb locker"
+                    required
+                  />
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+                  <span style="font-size:0.78rem; color:var(--hb-brown-muted);">Wird direkt an das Hundeberg Trainer-Team übermittelt.</span>
+                  <button type="submit" class="hb-btn hb-btn-green hb-btn-sm">
+                    Eigenes Training abhaken &amp; senden
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             RIGHT PANE: TRAINER-COCKPIT (Dominika, Saskia & Martina)
+             ============================================================== -->
+        <div class="hb-pane hb-trainer-pane">
+          <div class="hb-pane-topbar hb-pane-topbar-dark">
+            <div class="hb-pane-label">
+              <span class="hb-pane-role-tag">Trainer-Ansicht</span>
+              <span class="hb-pane-title">Hundeberg Cockpit · Dominika &amp; Team</span>
+            </div>
+            <span style="font-size: 0.8rem; opacity: 0.85;">Echtzeit-Übersicht</span>
+          </div>
+
+          <div class="hb-pane-body">
+            <!-- Trainer Header -->
+            <div class="hb-trainer-header-card">
+              <div>
+                <span class="hb-overline" style="margin-bottom:0.2rem; font-size:0.68rem;">Hundeschule Zell unter Aichelberg</span>
+                <h3 style="font-size:1.45rem;">Wer hat seine Hausaufgaben gemacht?</h3>
+                <p style="font-size:0.86rem; color:var(--hb-brown-muted);">
+                  Jeder Haken in der Kunden-App erscheint hier sofort ohne Neuladen.
+                </p>
+              </div>
+              <div class="hb-trainer-team-avatars">
+                <div class="hb-avatar-stack">
+                  <img src="assets/dominika.webp" alt="Dominika" title="Dominika Streckbein" />
+                  <img src="assets/saskia.jpg" alt="Saskia" title="Saskia" />
+                  <img src="assets/martina.jpg" alt="Martina" title="Martina" />
+                </div>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div id="trainerKpiRow" class="hb-kpi-row">
+              <!-- Populated dynamically by app.js -->
+            </div>
+
+            <!-- Real-time Activity Log -->
+            <div class="hb-feed-box">
+              <div class="hb-feed-header">
+                <h4>Live-Protokoll der Kundschaft</h4>
+                <span class="hb-live-indicator">Live-Sync</span>
+              </div>
+              <div id="trainerActivityFeed" class="hb-feed-list">
+                <!-- Populated dynamically by app.js -->
+              </div>
+            </div>
+
+            <!-- Active Teams Status & Trainer Feedback Controls -->
+            <div style="margin-bottom: 1.25rem;">
+              <h4 style="font-size: 1.35rem; margin-bottom: 0.65rem;">Hausaufgaben-Stand der Mensch-Hund-Teams</h4>
+              <div id="trainerClientsOverview">
+                <!-- Populated dynamically by app.js -->
+              </div>
+            </div>
+
+            <!-- Assign New Homework Form (Trainer -> Customer) -->
+            <div class="hb-self-training-card" style="margin-top:0; border-style:solid; border-color:rgba(101,116,91,0.35);">
+              <span class="hb-overline" style="margin-bottom: 0.2rem; font-size: 0.68rem;">Trainer-Werkzeug</span>
+              <h4>Neue Hausaufgabe zuweisen</h4>
+              <p>Weise dem aktuell ausgewählten Team eine weitere Übung für diese Woche zu.</p>
+
+              <form id="assignHomeworkForm">
+                <div class="hb-form-grid">
+                  <div>
+                    <label for="assignHwTitle" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Übungstitel</label>
+                    <input type="text" id="assignHwTitle" class="hb-input" placeholder="z.B. 5 Runden Slalom um Pylonen" required />
+                  </div>
+                  <div>
+                    <label for="assignHwCategory" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Kurs / Thema</label>
+                    <select id="assignHwCategory" class="hb-input" required>
+                      <option value="Begegnungstraining / Socialwalk">Begegnungstraining / Socialwalk</option>
+                      <option value="Nasenarbeit">Nasenarbeit</option>
+                      <option value="Anti-Jagd-Training">Anti-Jagd-Training</option>
+                      <option value="Hoopers">Hoopers</option>
+                      <option value="Longieren">Longieren</option>
+                      <option value="Anti-Giftköder-Training">Anti-Giftköder-Training</option>
+                      <option value="Basiskurs">Basiskurs</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="hb-form-grid">
+                  <div>
+                    <label for="assignHwRoundsCount" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Anzahl Runden zum Abhaken</label>
+                    <select id="assignHwRoundsCount" class="hb-input">
+                      <option value="3">3 Runden</option>
+                      <option value="4">4 Runden</option>
+                      <option value="5" selected>5 Runden</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="assignHwTrainer" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Trainerin</label>
+                    <select id="assignHwTrainer" class="hb-input">
+                      <option value="Dominika">Dominika</option>
+                      <option value="Saskia">Saskia</option>
+                      <option value="Martina">Martina</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="margin-bottom: 0.75rem;">
+                  <label for="assignHwSetup" style="display:block; font-size:0.8rem; font-weight:500; margin-bottom:0.25rem;">Erklärung &amp; Übungsaufbau für den Kunden</label>
+                  <input
+                    type="text"
+                    id="assignHwSetup"
+                    class="hb-input"
+                    placeholder="Kurze Anleitung: Worauf soll beim Aufbau und bei der Belohnung geachtet werden?"
+                    required
+                  />
+                </div>
+
+                <button type="submit" class="hb-btn hb-btn-primary hb-btn-sm">
+                  Hausaufgabe jetzt in Kunden-App senden
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       THEMEN & KURSE SECTION ("Entfalte dein ganzes Pfotenzial!")
+       ==================================================================== -->
+  <section id="themen-katalog" class="hb-green-band">
+    <div class="hb-container">
+      <div class="hb-section-header">
+        <span class="hb-overline">Unsere Hunde-Kurse &amp; Hausaufgaben-Bausteine</span>
+        <h2>Entfalte dein ganzes Pfotenzial!</h2>
+        <p style="color: rgba(233, 228, 215, 0.9);">
+          Zu jedem Angebot der Hundeschule Hundeberg gibt es passende Praxis-Aufgaben für zuhause. Mit einem Klick kannst du jede Vorlage direkt als Hausaufgabe für Paul &amp; Fifi übernehmen.
+        </p>
+      </div>
+
+      <div id="courseCatalogGrid" class="hb-course-grid">
+        <!-- Populated dynamically by app.js with all original Hundeberg courses & images -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       TRAINERINNEN SECTION ("Wir geben Hundeprozent!")
+       ==================================================================== -->
+  <section id="trainerinnen" class="hb-trainers-section">
+    <div class="hb-container">
+      <div class="hb-section-header">
+        <span class="hb-overline">Unsere Hunde-Trainerinnen</span>
+        <h2>Wir geben Hundeprozent!</h2>
+        <p>
+          Persönliche Begleitung auf unserem eingezäunten Trainingsplatz in Zell unter Aichelberg – und digital unterstützt bei euren Hausaufgaben im Alltag.
+        </p>
+      </div>
+
+      <div class="hb-trainers-grid">
+        <article class="hb-trainer-card">
+          <img src="assets/dominika.webp" alt="Dominika Streckbein" class="hb-trainer-photo" />
+          <h3>Dominika</h3>
+          <div class="hb-trainer-role">Hundeerzieherin &amp; Verhaltensberaterin (IHK/BHV) · Inhaberin</div>
+          <p class="hb-trainer-bio">
+            Zertifizierte Hundeerzieherin und Verhaltensberaterin (IHK), ausgebildete Hoopers- und Suchhunde-Trainerin. Fokus auf positive Verstärkung, klare Körpersprache und individuelle Trainingspläne.
+          </p>
+        </article>
+
+        <article class="hb-trainer-card">
+          <img src="assets/saskia.jpg" alt="Saskia" class="hb-trainer-photo" />
+          <h3>Saskia</h3>
+          <div class="hb-trainer-role">Hundetrainerin · Schwerpunkt Tierschutz &amp; Familienhunde</div>
+          <p class="hb-trainer-bio">
+            Empathische Begleitung für besondere Felle, Auslandshunde und Familien mit Kindern. Spezialisiert auf alltagsnahes Begegnungstraining, sichere Rückrufsignale und Impulskontrolle.
+          </p>
+        </article>
+
+        <article class="hb-trainer-card">
+          <img src="assets/martina.jpg" alt="Martina Luisa Ferrari" class="hb-trainer-photo" />
+          <h3>Martina</h3>
+          <div class="hb-trainer-role">Hundetrainerin · Schwerpunkt Auslastung &amp; Distanzarbeit</div>
+          <p class="hb-trainer-bio">
+            Strukturiertes Training mit Fokus auf feine Kommunikation, Longieren, Hoopers und ruhige Orientierung am Menschen – Schritt für Schritt aufgebaut ohne Überforderung.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       FOOTER (Authentic Hundeberg Info)
+       ==================================================================== -->
+  <footer class="hb-footer">
+    <div class="hb-container">
+      <div class="hb-footer-grid">
+        <div>
+          <img src="assets/logo-hundeberg.svg" alt="Hundeberg Logo" style="height: 2rem; margin-bottom: 1rem;" />
+          <p>
+            <strong>keine Zauberei</strong> – Konzept &amp; interaktive App-Vorschau für das Hausaufgaben- und Trainings-System der Hundeschule Hundeberg.
+          </p>
+        </div>
+
+        <div>
+          <h4>Trainingsplatz</h4>
+          <p>
+            <strong>Hundeschule Hundeberg</strong><br />
+            Schieferstr. 7<br />
+            73119 Zell unter Aichelberg
+          </p>
+        </div>
+
+        <div>
+          <h4>Postanschrift</h4>
+          <p>
+            Dominika Streckbein<br />
+            Hedelfinger Str. 12<br />
+            73734 Esslingen
+          </p>
+        </div>
+
+        <div>
+          <h4>Prototyp-Technik</h4>
+          <p>
+            Echtzeit-Datenbank über OtterAbs Firebase Cloud Firestore. Änderungen in der Kunden-Ansicht (z.B. Paul &amp; Fifi) werden live in das Trainer-Cockpit übertragen.
+          </p>
+        </div>
+      </div>
+
+      <div class="hb-footer-bottom">
+        <span>Konzept-Prototyp für Hundeberg · Bereitgestellt unter otterabs.dev/Kruzafix</span>
+        <span>Hundetraining für Göppingen, Kirchheim unter Teck, Weilheim, Bad Boll, Plochingen, Nürtingen &amp; Esslingen</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="hbToast" class="hb-toast" role="status" aria-live="polite"></div>
+
+  <!-- Firebase Compat SDKs (App + Firestore) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

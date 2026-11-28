@@ -1,0 +1,12 @@
+{
+    "app":  "NeonCore (Void Core)",
+    "channel":  "LIVE WEB • TÄGLICHE UPDATES",
+    "updatedAtIso":  "2026-11-28T11:38:22+01:00",
+    "updatedDate":  "28.11.2026",
+    "updatedTime":  "11:38",
+    "branch":  "nightly/2026-11-28",
+    "commit":  "53fc43d",
+    "headline":  "add AdSense H5 lifecycle, live update badge, and nightly auto-deploy",
+    "adsenseClient":  "ca-pub-3667259962655426",
+    "adBreakTestMode":  false
+}

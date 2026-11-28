@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Void Core</title>
+
+    <link rel="stylesheet" crossorigin href="./assets/index-1axt6nbw.css">
+    <!-- Google H5 Games Ad Placement API (AdSense for Games) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3667259962655426" crossorigin="anonymous" onload="window.__neonAdSenseScriptLoaded=true" onerror="window.__neonAdSenseScriptFailed=true"></script>
+  <script>
+    window.adsbygoogle = window.adsbygoogle || [];
+    window.adBreak = window.adConfig = function(o) { window.adsbygoogle.push(o); };
+    window.adConfig({ preloadAdBreaks: 'on' });
+  </script>
+</head>
+  <body>
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Sticky Unified Command Hub Navigation Bar (v3.0) -->
+    <div id="ncUnifiedHubBar" class="nc-unified-hub-bar hidden" role="navigation" aria-label="Command Hub Navigation">
+      <div class="nc-hub-nav-tabs">
+        <button id="hubNavCore" class="nc-hub-tab active" type="button">CORE <span id="hubBadgeCore" class="nc-notif-dot hidden">0</span></button>
+        <button id="hubNavPerks" class="nc-hub-tab" type="button">PERKS <span id="hubBadgePerks" class="nc-notif-dot hidden">0</span></button>
+        <button id="hubNavGear" class="nc-hub-tab" type="button">GEAR <span id="hubBadgeGear" class="nc-notif-dot hidden">0</span></button>
+        <button id="hubNavSanctum" class="nc-hub-tab" type="button">SANCTUM <span id="hubBadgeSanctum" class="nc-notif-dot hidden">0</span></button>
+      </div>
+      <button id="btnHubClose" class="nc-hub-close-btn" type="button" aria-label="Close Hub">✕</button>
+    </div>
+
+    <!-- UI Overlay: Main Menu -->
+    <div id="mainMenu" class="ui-layer">
+      <h1 class="neon-text title">VOID CORE</h1>
+      <!-- Void Carousel -->
+      <div class="void-carousel-container" style="height: 35vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; perspective: 1000px; overflow: hidden;">
+        <button id="btnPrevVoid" class="carousel-btn" style="position: absolute; left: 10%; z-index: 10; background: transparent; border: 2px solid #aaddff; color: #aaddff; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; text-shadow: 0 0 5px #aaddff; box-shadow: 0 0 10px rgba(170,221,255,0.3);">&lt;</button>
+        
+        <div class="void-carousel" id="voidCarousel" style="position: relative; width: 200px; height: 200px; transform-style: preserve-3d; transition: transform 0.5s ease;">
+          <div class="void-slot" id="voidSlot1" data-slot="1">
+            <canvas id="carouselCanvas1" width="600" height="600" style="width: 300px; height: 300px; position: absolute; top: -110px; left: -100px; z-index: -1; pointer-events: none;"></canvas>
+            <h3 style="text-align: center; margin-top: 80px; color: #fff; text-shadow: 0 0 10px #fff;">VOID 1</h3>
+          </div>
+          <div class="void-slot" id="voidSlot2" data-slot="2">
+            <canvas id="carouselCanvas2" width="600" height="600" style="width: 300px; height: 300px; position: absolute; top: -110px; left: -100px; z-index: -1; pointer-events: none;"></canvas>
+            <h3 style="text-align: center; margin-top: 80px; color: #fff; text-shadow: 0 0 10px #fff;">VOID 2</h3>
+          </div>
+          <div class="void-slot" id="voidSlot3" data-slot="3">
+            <canvas id="carouselCanvas3" width="600" height="600" style="width: 300px; height: 300px; position: absolute; top: -110px; left: -100px; z-index: -1; pointer-events: none;"></canvas>
+            <h3 style="text-align: center; margin-top: 80px; color: #fff; text-shadow: 0 0 10px #fff;">VOID 3</h3>
+          </div>
+        </div>
+
+        <button id="btnNextVoid" class="carousel-btn" style="position: absolute; right: 10%; z-index: 10; background: transparent; border: 2px solid #aaddff; color: #aaddff; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; text-shadow: 0 0 5px #aaddff; box-shadow: 0 0 10px rgba(170,221,255,0.3);">&gt;</button>
+      </div>
+      <div class="stats-preview">
+        <h2 style="color: #aaddff; margin-bottom: 5px; text-shadow: 0 0 10px #aaddff;">VOID LEVEL: <span id="menuGlobalLevel">1</span></h2>
+        <div style="width: 100%; height: 10px; background: #222; border: 1px solid #aaddff; border-radius: 5px; margin-bottom: 15px; overflow: hidden;">
+          <div id="menuGlobalXpBar" style="width: 0%; height: 100%; background: #aaddff; box-shadow: 0 0 10px #aaddff;"></div>
+        </div>
+        <p>Void Matter: <span id="menuCurrency" class="highlight">0</span></p>
+        <p>Crystals: <span id="menuPremium" class="highlight-premium">0</span></p>
+        <p>Perk Points: <span id="menuPerkPoints" class="highlight-boss">0</span></p>
+      </div>
+      <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+        <button id="btnResetVoid" class="neon-button secondary small" style="border-color: #ff3333; color: #ff3333; text-shadow: 0 0 5px #ff3333; box-shadow: 0 0 10px rgba(255,51,51,0.2);">RESET VOID</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-bottom: 15px;">
+        <button id="btnStartGame" class="neon-button" style="width: 250px;">START RUN</button>
+        <button id="btnStartAI" class="neon-button" style="width: 250px; border-color: #ff00ff; color: #ff00ff; text-shadow: 0 0 10px #ff00ff;">START AI INFERENCE</button>
+        <button id="btnStartAd" class="neon-button secondary" style="width: 250px; border-color: #aaddff; color: #aaddff;">START +1 PERK (Ad)</button>
+        <button id="btnOpenHub" class="neon-button secondary nc-hub-entry-btn" style="width: 250px; border-color: #00eeff; color: #00eeff;">COMMAND HUB <span id="hubMainBadge" class="nc-notif-dot hidden">0</span></button>
+        <button id="btnOpenShop" class="neon-button secondary nc-legacy-hidden" style="width: 250px;">AUGMENTATIONS</button>
+        <button id="btnOpenCharacter" class="neon-button secondary nc-legacy-hidden" style="width: 250px;">PERK TREE</button>
+        <button id="btnOpenArsenal" class="neon-button secondary nc-legacy-hidden" style="width: 250px; border-color: #00eeff; color: #00eeff;">CORE ARSENAL</button>
+        <button id="btnOpenSanctumHub" class="neon-button secondary nc-legacy-hidden" style="width: 250px; border-color: #ffd700; color: #ffd700;">SANCTUM ENTITIES</button>
+      </div>
+    </div>
+
+    <!-- UI Overlay: Meta Shop -->
+    <div id="shopMenu" class="ui-layer hidden">
+      <h2 class="neon-text">BASE AUGMENTATIONS</h2>
+      <div class="stats-preview" style="text-align: center; margin-bottom: 10px;">
+        <p>Void Matter: <span id="shopCurrency" class="highlight">0</span></p>
+        <p>Crystals: <span id="shopPremium" class="highlight-premium">0</span></p>
+        <p>Points: <span id="shopPerkPoints" class="highlight-boss">0</span></p>
+      </div>
+      <button id="btnBuyPremium" class="neon-button small" style="margin-bottom: 15px; border-color: gold; color: gold; box-shadow: 0 0 10px rgba(255,215,0,0.6);">+10 CRYSTALS BUY ($0.99)</button>
+      <div class="nc-crystal-exchange-bar" aria-label="Crystal Synthesis">
+        <button id="btnSynthCrystal1" class="neon-button secondary small" type="button">+1 CRYSTAL (100 Matter)</button>
+        <button id="btnSynthCrystal5" class="neon-button secondary small" type="button">+5 CRYSTALS (450 Matter)</button>
+        <button id="btnAdCrystal" class="neon-button secondary small" type="button">+2 CRYSTALS (Ad)</button>
+      </div>
+      <div class="shop-items scrollable" id="shopItemsContainer">
+        <!-- Injected via JS -->
+      </div>
+      <button id="btnShopBack" class="neon-button secondary">BACK</button>
+    </div>
+
+    <!-- UI Overlay: Character Menu -->
+    <div id="characterMenu" class="ui-layer hidden">
+      <h2 class="neon-text">PERK TREE</h2>
+      <div class="stats-preview" style="text-align: center; margin-bottom: 10px;">
+        <p>Points: <span id="charPerkPoints" class="highlight-boss">0</span></p>
+      </div>
+      <!-- New Hex Grid Layout -->
+      <div id="treeContainer" class="tree-container scrollable">
+        <div id="canvasArea" class="canvas-area">
+          <svg id="linesSvg"></svg>
+          <!-- Hexagons injected via JS -->
+        </div>
+      </div>
+
+      <!-- Details Panel for selected hex -->
+      <div id="detailsPanel" class="details-panel">
+        <div class="details-header">
+          <h3 id="det-title">Perk Name</h3>
+          <span id="det-status" class="skill-status">STATUS</span>
+        </div>
+        <p id="det-desc">Perk Description</p>
+        <div id="det-actions" class="details-actions">
+          <!-- Buy button injected here -->
+        </div>
+      </div>
+
+      <button id="btnCharBack" class="neon-button secondary btn-floating">BACK</button>
+    </div>
+
+    <!-- UI Overlay: Core Arsenal -->
+    <div id="arsenalMenu" class="ui-layer hidden glass">
+      <h2 class="neon-text">CORE ARSENAL</h2>
+      <div class="nc-header-badges">
+        <div class="nc-badge nc-badge-cyan">Matter: <span id="arsMatterReadout" class="highlight">0</span></div>
+        <div class="nc-badge nc-badge-gold">Crystals: <span id="arsCrystalReadout" class="highlight-premium">0</span></div>
+        <div class="nc-badge nc-badge-cyan">Attr Pts: <span id="arsUnspentAttr">0</span></div>
+      </div>
+      <div class="nc-tabs nc-legacy-hidden" role="tablist">
+        <button id="tabBtnAttrs" class="nc-tab-btn active" type="button" data-tab="arsTabAttrs">ATTRIBUTES</button>
+        <button id="tabBtnModules" class="nc-tab-btn" type="button" data-tab="arsTabModules">MODULES &amp; SHARDS</button>
+        <button id="tabBtnPhases" class="nc-tab-btn" type="button" data-tab="arsTabPhases">WORLD PHASES</button>
+      </div>
+      <div class="nc-scroll-area scrollable">
+        <div id="arsTabAttrs" class="nc-tab-panel">
+          <div id="attrCardsContainer" class="nc-attr-grid">
+            <!-- Injected via JS -->
+          </div>
+          <div class="nc-section-actions">
+            <button id="btnRespecAttrs" class="neon-button secondary small" type="button">RESPEC ATTRIBUTES</button>
+          </div>
+          <h3 class="nc-section-title" style="margin-top:16px;">BASE AUGMENTATIONS &amp; CRYSTALS</h3>
+          <div id="coreCrystalBar" class="nc-crystal-exchange-bar" aria-label="Core Crystal Synthesis">
+            <button id="btnCoreSynth1" class="neon-button secondary small" type="button">+1 CRYSTAL (100M)</button>
+            <button id="btnCoreSynth5" class="neon-button secondary small" type="button">+5 CRYSTALS (450M)</button>
+          </div>
+          <div id="coreAugsMount" class="nc-aug-grid">
+            <!-- Base Augmentations mirrored in Core Hub -->
+          </div>
+        </div>
+        <div id="arsTabModules" class="nc-tab-panel hidden">
+          <div id="gearPresetBar" class="nc-preset-bar"></div>
+          <div id="gearQuickActions" class="nc-gear-quick-actions">
+            <button id="btnAutoEquipBest" class="neon-button small" type="button">AUTO-EQUIP BEST</button>
+            <button id="btnSalvageWorse" class="neon-button secondary small" type="button">SALVAGE WORSE</button>
+          </div>
+          <h3 class="nc-section-title">EQUIPPED MODULES</h3>
+          <div id="equippedSlotsContainer" class="nc-slots-grid">
+            <!-- Injected via JS -->
+          </div>
+          <h3 class="nc-section-title">AUTO-RESONANCE SHARDS</h3>
+          <div id="shardInventoryBar" class="nc-shard-bar">
+            <!-- Injected via JS -->
+          </div>
+          <h3 class="nc-section-title">MODULE ARCHIVE</h3>
+          <div id="moduleInventoryContainer" class="nc-mod-grid">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+        <div id="arsTabPhases" class="nc-tab-panel hidden">
+          <h3 class="nc-section-title">WORLD PHASE</h3>
+          <div id="phaseCardsContainer" class="nc-phase-grid">
+            <!-- Injected via JS -->
+          </div>
+          <h3 class="nc-section-title">FRACTURE KEYS</h3>
+          <div id="fractureKeyContainer" class="nc-key-grid">
+            <!-- Injected via JS -->
+          </div>
+          <h3 class="nc-section-title">SINGULARITY DESCENT</h3>
+          <div id="descentPanel" class="nc-descent-panel">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+      </div>
+      <div class="nc-panel-footer">
+        <button id="btnArsenalBack" class="neon-button secondary" type="button">BACK</button>
+      </div>
+    </div>
+
+    <!-- UI Overlay: Sanctum Echo Entities -->
+    <div id="sanctumHubMenu" class="ui-layer hidden glass">
+      <h2 class="neon-text">SANCTUM COMMAND</h2>
+      <div class="nc-header-badges">
+        <div class="nc-badge nc-badge-gold">Void Matter: <span id="hubCurrency" class="highlight">0</span></div>
+        <div class="nc-badge nc-badge-cyan">Crystals: <span id="hubPremium" class="highlight-premium">0</span></div>
+      </div>
+      <div class="nc-tabs nc-legacy-hidden" role="tablist">
+        <button id="tabBtnArchivist" class="nc-tab-btn active" type="button" data-tab="hubTabArchivist">ARCHIVIST</button>
+        <button id="tabBtnArtificer" class="nc-tab-btn" type="button" data-tab="hubTabArtificer">ARTIFICER</button>
+        <button id="tabBtnBroker" class="nc-tab-btn" type="button" data-tab="hubTabBroker">BROKER</button>
+      </div>
+      <div class="nc-scroll-area scrollable">
+        <div id="hubTabArchivist" class="nc-tab-panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+            <h3 class="nc-section-title" style="margin:0;">ACTIVE CONTRACTS</h3>
+            <button id="btnClaimAllContracts" class="neon-button small" type="button">CLAIM ALL READY</button>
+          </div>
+          <div id="contractsContainer" class="nc-contracts-grid">
+            <!-- Injected via JS -->
+          </div>
+
+          <h3 class="nc-section-title" style="margin-top:14px;">BIOME MASTERY &amp; AFFINITY GUIDE</h3>
+          <div id="biomeMasterySummaryBar" class="nc-info-note" style="margin-bottom:8px;"></div>
+          <div id="biomeMasteryContainer" class="nc-mastery-grid">
+            <!-- Injected via JS -->
+          </div>
+
+          <h3 class="nc-section-title" style="margin-top:14px;">WORLD PHASES &amp; DESCENT</h3>
+          <div id="sanctumPhasesMount" class="nc-sanctum-phases-mount">
+            <!-- World Phases, Fracture Keys & Descent mounted here in Unified Hub -->
+          </div>
+
+          <h3 class="nc-section-title" style="margin-top:14px;">BROKER CAPSULE &amp; CRYSTALS</h3>
+          <div id="brokerStatusBanner" class="nc-status-banner nc-entity-gold">Acquire Mystery Capsules, Synthesize Crystals, or risk Signal Matrix escalation.</div>
+          <div class="nc-crystal-exchange-bar" aria-label="Broker Crystal Exchange">
+            <button id="btnBrokerCrystal1" class="neon-button secondary small" type="button">+1 CRYSTAL (100 Matter)</button>
+            <button id="btnBrokerCrystal5" class="neon-button secondary small" type="button">+5 CRYSTALS (450 Matter)</button>
+            <button id="btnBrokerAdCrystal" class="neon-button secondary small" type="button">+2 CRYSTALS (Ad)</button>
+          </div>
+          <div class="nc-broker-capsule-row">
+            <button id="btnBrokerCapsule" class="neon-button small" type="button">OPEN MYSTERY CAPSULE</button>
+            <div id="brokerResultBox" class="nc-result-box">No capsule decrypted yet.</div>
+          </div>
+
+          <details class="nc-optional-drawer">
+            <summary>ADVANCED PROTOCOLS (CODEX / ARTIFICER / SIGNAL MATRIX)</summary>
+            <h3 class="nc-section-title">SANCTUM CODEX</h3>
+            <div id="codexContainer" class="nc-codex-grid">
+              <!-- Injected via JS -->
+            </div>
+            <div id="hubTabArtificer" class="nc-tab-panel" style="margin-top:12px;">
+              <div id="artificerStatusBanner" class="nc-status-banner nc-entity-magenta">Select a module to Recalibrate, Amplify, or Overdrive.</div>
+              <h3 class="nc-section-title">TARGET MODULE</h3>
+              <div id="artificerModuleSelect" class="nc-mod-select-grid"></div>
+              <div id="overclockMinigameBox" class="nc-minigame-box">
+                <div class="nc-minigame-header">
+                  <span class="nc-minigame-title">HARMONIC OVERCLOCK</span>
+                  <span class="nc-minigame-tag">TIMING RESONANCE</span>
+                </div>
+                <div id="overclockTrack" class="nc-overclock-track">
+                  <div id="overclockZone" class="nc-overclock-zone"></div>
+                  <div id="overclockCursor" class="nc-overclock-cursor"></div>
+                </div>
+                <div class="nc-minigame-controls">
+                  <button id="btnOverclockStrike" class="neon-button small" type="button">SYNC RESONANCE</button>
+                  <span id="overclockStatus" class="nc-minigame-status">Await harmonic alignment.</span>
+                </div>
+              </div>
+              <div id="artificerActions" class="nc-artificer-actions"></div>
+            </div>
+            <div id="hubTabBroker" class="nc-tab-panel" style="margin-top:12px;">
+              <div id="signalMatrixBox" class="nc-minigame-box nc-matrix-box">
+                <div class="nc-minigame-header">
+                  <span class="nc-minigame-title">SIGNAL MATRIX</span>
+                  <span class="nc-minigame-tag">3x3 RISK PROTOCOL</span>
+                </div>
+                <div id="signalMatrixGrid" class="nc-matrix-grid">
+                  <button class="nc-matrix-cell" type="button" data-idx="0">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="1">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="2">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="3">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="4">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="5">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="6">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="7">?</button>
+                  <button class="nc-matrix-cell" type="button" data-idx="8">?</button>
+                </div>
+                <div id="signalMatrixStatus" class="nc-minigame-status">Initialize Signal Matrix to stake Void Matter.</div>
+                <div class="nc-minigame-controls">
+                  <button id="btnMatrixStart" class="neon-button small" type="button">START MATRIX</button>
+                  <button id="btnMatrixCashout" class="neon-button secondary small" type="button">EXTRACT PAYOUT</button>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="nc-panel-footer">
+        <button id="btnSanctumBack" class="neon-button secondary" type="button">BACK</button>
+      </div>
+    </div>
+
+    <!-- UI Overlay: In-Game HUD -->
+    <div id="inGameHud" class="ui-layer hidden">
+      <div class="hud-top">
+        <div class="nc-hud-row nc-hud-row-xp">
+          <div class="xp-bar-container">
+            <div id="xpBar" class="xp-bar-fill"></div>
+          </div>
+          <div class="level-indicator">LVL <span id="hudLevel">1</span></div>
+          <button id="btnHudPause" class="nc-hud-pause-btn" type="button" aria-label="Pause">II</button>
+        </div>
+        <div class="nc-hud-row nc-hud-row-vitals">
+          <div class="nc-hp-bar-wrap">
+            <div id="hudHpFill" class="nc-hp-bar-fill"></div>
+            <div id="hudShieldFill" class="nc-shield-bar-fill"></div>
+            <span id="hudHpText" class="nc-hud-hp-label">HP 100/100</span>
+          </div>
+          <div id="hudMatter" class="nc-hud-pill nc-hud-matter">+0M</div>
+          <div class="hud-time" id="hudTime">00:00</div>
+        </div>
+      </div>
+      
+      <!-- Virtual Joystick -->
+      <div id="joystickBase" class="hidden" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 255, 255, 0.2); border: 2px solid rgba(0, 255, 255, 0.5); pointer-events: none; transform: translate(-50%, -50%); z-index: 100;">
+        <div id="joystickStick" style="position: absolute; width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 255, 255, 0.8); top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);"></div>
+      </div>
+    </div>
+
+    <!-- UI Overlay: Pause Action Bar -->
+    <div id="pauseOverlayBar" class="nc-pause-bar hidden">
+      <button id="btnPauseResume" class="neon-button small" type="button">RESUME</button>
+      <button id="btnPauseArsenal" class="neon-button secondary small" type="button">ARSENAL</button>
+      <button id="btnExtractRun" class="neon-button small nc-btn-extract" type="button">EXTRACT &amp; END RUN</button>
+    </div>
+
+    <!-- HUD Overlay: Neural Lockpick Breach Widget -->
+    <div id="vaultHackWidget" class="hidden">
+      <div id="vaultHackTitle" class="nc-hack-title">NEURAL LOCKPICK // BREACH</div>
+      <div id="vaultHackNodes" class="nc-hack-nodes">
+        <button class="nc-hack-node" type="button" data-idx="0">1</button>
+        <button class="nc-hack-node" type="button" data-idx="1">2</button>
+        <button class="nc-hack-node" type="button" data-idx="2">3</button>
+      </div>
+      <div id="vaultHackStatus" class="nc-hack-status">Synchronize sequence...</div>
+    </div>
+
+    <!-- UI Overlay: Level Up (Perk Selection) -->
+    <div id="levelUpMenu" class="ui-layer hidden glass">
+      <h2 class="neon-text">LEVEL UP!</h2>
+      <p class="subtitle">Choose your Perk</p>
+      <div class="perk-cards scrollable" id="perkContainer">
+        <!-- Injected via JS -->
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+        <button id="btnReroll" class="neon-button secondary small">REROLL (Ad)</button>
+        <button id="btnRerollPremium" class="neon-button secondary small" style="border-color: gold; color: gold;">REROLL (1 Crystal)</button>
+      </div>
+    </div>
+
+    <!-- UI Overlay: Game Over -->
+    <div id="gameOverMenu" class="ui-layer hidden glass">
+      <h2 id="goTitle" class="neon-text error">SYSTEM FAILURE</h2>
+      <div class="run-stats">
+        <p>Survived: <span id="goTime" class="highlight">00:00</span></p>
+        <p>Hostiles Cleared: <span id="goKills" class="highlight">0</span> &nbsp;|&nbsp; Best Streak: <span id="goStreak" class="highlight">0x</span></p>
+        <p>Collected: +<span id="goCurrency" class="highlight">0</span> Matter</p>
+        <p>Points: +<span id="goPerkPoints" class="highlight-boss">0</span></p>
+        <p id="goProgressHint" class="nc-go-hint"></p>
+      </div>
+      <div id="goBuildRecap" class="nc-go-recap"></div>
+      <div id="goQuickBar" class="nc-go-quickbar hidden"></div>
+      <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
+        <button id="btnDoubleCurrencyAd" class="neon-button secondary" style="border-color: #aaddff; color: #aaddff;">MATTER x2 (Ad)</button>
+        <button id="btnRevive" class="neon-button secondary">REVIVE (Ad)</button>
+      </div>
+      <div class="nc-go-actions">
+        <button id="btnFastRetry" class="neon-button">FAST RETRY</button>
+        <button id="btnGoUpgrades" class="neon-button secondary">UPGRADES <span id="goUpgradeBadge" class="nc-notif-dot hidden">0</span></button>
+        <button id="btnToMenu" class="neon-button secondary">MAIN MENU</button>
+      </div>
+    </div>
+
+    <script src="./src/meta.js?v=2"></script>
+    <script src="./src/systems.js?v=2"></script>
+    <script src="./src/stats.js?v=2"></script>
+    <script src="./src/perks.js?v=2"></script>
+    <script src="./src/input.js?v=2"></script>
+    <script src="./src/entities.js?v=2"></script>
+    <script src="./src/game.js?v=2"></script>
+    <script src="./src/main.js?v=2"></script>
+  </body>
+</html>
+
+

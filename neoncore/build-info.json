@@ -1,12 +1,12 @@
 {
     "app":  "NeonCore (Void Core)",
     "channel":  "LIVE WEB • TÄGLICHE UPDATES",
-    "updatedAtIso":  "2026-11-28T11:38:22+01:00",
+    "updatedAtIso":  "2026-11-28T11:38:46+01:00",
     "updatedDate":  "28.11.2026",
     "updatedTime":  "11:38",
     "branch":  "nightly/2026-11-28",
-    "commit":  "53fc43d",
-    "headline":  "add AdSense H5 lifecycle, live update badge, and nightly auto-deploy",
+    "commit":  "e512fbf",
+    "headline":  "ensure ASCII-safe UTF-8 JSON generation in PowerShell 5.1",
     "adsenseClient":  "ca-pub-3667259962655426",
     "adBreakTestMode":  false
 }

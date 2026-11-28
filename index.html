@@ -7,6 +7,7 @@
   <meta name="description" content="Otter Abs – Smarte Würfel-, Karten- und Gesellschaftsspiel-Apps für Android &amp; iOS: CrossFive, QuickSix, FlipTwelve, NightOtter, PartyOtter &amp; OtterRPS.">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3667259962655426" crossorigin="anonymous"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white">
 
@@ -51,6 +52,39 @@
 
     <!-- Games Showcase -->
     <section id="games" class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Featured Live Web Game: NeonCore -->
+      <div class="sm:col-span-2 lg:col-span-3 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900/95 to-cyan-950/50 border border-cyan-500/40 rounded-2xl p-6 sm:p-7 shadow-lg shadow-cyan-500/10 hover:border-cyan-400/70 transition-all">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-3 max-w-2xl">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/35">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                LIVE IM BROWSER &bull; T&Auml;GLICHE UPDATES
+              </span>
+              <span class="text-[11px] px-2.5 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">
+                Direkt spielbar (Desktop &amp; Mobil)
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white">
+              NeonCore <span class="text-cyan-400 font-bold text-lg sm:text-xl">(Void Core)</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Rasantes Neon-Arcade-Roguelite direkt im Browser spielen &ndash; mit Elementar-Perks, Boss-Phasen, Gear-Arsenal und automatisierten t&auml;glichen / h&auml;ufigen Studio-Updates.
+            </p>
+            <div id="neoncoreBuildStatus" class="text-[11px] font-mono text-cyan-300/90 bg-slate-950/70 border border-slate-800 rounded-lg px-3 py-2 inline-block">
+              Letztes Update: T&auml;glicher automatischer Build aktiv
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row md:flex-col items-stretch sm:items-center md:items-end gap-3 shrink-0">
+            <a href="neoncore/" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-950 font-extrabold text-sm tracking-wide shadow-lg shadow-cyan-500/25 hover:from-cyan-300 hover:to-teal-300 hover:scale-[1.02] transition-all">
+              <span>Jetzt im Browser spielen</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <span class="text-[11px] text-slate-400 text-center md:text-right">Kein Download n&ouml;tig &bull; Mit Web-Savegame</span>
+          </div>
+        </div>
+      </div>
+
       <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 hover:border-orange-500/40 transition-colors">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs font-bold uppercase tracking-wider text-orange-400">Roll &amp; Write Flaggschiff</span>
@@ -88,14 +122,32 @@
         <span>&copy; 2026 Otter Abs (Paul Kern) &bull; Wolfschlugen, Deutschland</span>
       </div>
       <div class="flex flex-wrap justify-center gap-5">
+        <a href="neoncore/" class="hover:text-cyan-300 transition-colors">NeonCore spielen</a>
         <a href="privacy.html" class="hover:text-slate-300 transition-colors">Datenschutzerklärung</a>
         <a href="privacy.html#data-deletion" class="hover:text-slate-300 transition-colors">Datenlöschung</a>
         <a href="impressum.html" class="hover:text-slate-300 transition-colors">Impressum</a>
+        <a href="ads.txt" class="hover:text-slate-300 transition-colors">ads.txt</a>
         <a href="app-ads.txt" class="hover:text-slate-300 transition-colors">app-ads.txt</a>
         <a href="mailto:otterabs@gmail.com" class="hover:text-slate-300 transition-colors">otterabs@gmail.com</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('neoncoreBuildStatus');
+      if (!el || typeof fetch !== 'function') return;
+      fetch('neoncore/build-info.json?t=' + Date.now(), { cache: 'no-store' })
+        .then(function (r) { return r && r.ok ? r.json() : null; })
+        .then(function (info) {
+          if (!info || !info.updatedDate) return;
+          var parts = ['Letztes Update: ' + info.updatedDate + (info.updatedTime ? ', ' + info.updatedTime + ' Uhr' : '')];
+          if (info.headline) parts.push(String(info.headline));
+          el.textContent = parts.join(' \u00b7 ');
+        })
+        .catch(function () {});
+    })();
+  </script>
 
 </body>
 </html>
